@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zhuque_flutter_demo/core/theme/app_colors.dart';
+import 'package:zhuque_flutter_demo/core/constants/app_colors.dart';
 
 class IndexListDemoPage extends StatefulWidget {
   const IndexListDemoPage({Key? key}) : super(key: key);
@@ -148,14 +148,14 @@ class _IndexListDemoPageState extends State<IndexListDemoPage> {
               },
               header: Container(
                 padding: const EdgeInsets.all(16),
-                color: AppColors.gray1,
+                color: AppColors.grayLightest,
                 child: Row(
                   children: [
-                    Icon(Icons.search, color: AppColors.gray6),
+                    Icon(Icons.search, color: AppColors.gray),
                     const SizedBox(width: 12),
                     Text(
                       '搜索联系人',
-                      style: TextStyle(color: AppColors.gray6),
+                      style: TextStyle(color: AppColors.gray),
                     ),
                   ],
                 ),
@@ -165,7 +165,7 @@ class _IndexListDemoPageState extends State<IndexListDemoPage> {
           // 索引侧边栏
           Container(
             width: 32,
-            color: AppColors.gray1,
+            color: AppColors.grayLightest,
             child: TnIndexSidebar(
               data: _contactData,
               onIndexTap: (letter) {
@@ -183,13 +183,13 @@ class _IndexListDemoPageState extends State<IndexListDemoPage> {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(color: AppColors.gray3),
+          bottom: BorderSide(color: AppColors.grayLight),
         ),
       ),
       child: Row(
         children: [
           CircleAvatar(
-            backgroundColor: AppColors.primary.withValues(opacity: 0.1),
+            backgroundColor: AppColors.primary.withValues(alpha: 0.1),
             child: Text(
               item['name']!.substring(0, 1),
               style: TextStyle(color: AppColors.primary),
@@ -211,7 +211,7 @@ class _IndexListDemoPageState extends State<IndexListDemoPage> {
                 Text(
                   item['phone']!,
                   style: TextStyle(
-                    color: AppColors.gray6,
+                    color: AppColors.gray,
                     fontSize: 14,
                   ),
                 ),
@@ -245,7 +245,7 @@ class _IndexListDemoPageState extends State<IndexListDemoPage> {
       style: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold,
-        color: AppColors.gray8,
+        color: AppColors.grayDarker,
       ),
     );
   }
@@ -338,14 +338,14 @@ class _TnIndexListState extends State<TnIndexList> {
               child: Container(
                 height: 30,
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                color: AppColors.gray2,
+                color: AppColors.grayLighter,
                 alignment: Alignment.centerLeft,
                 child: Text(
                   letter,
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.gray6,
+                    color: AppColors.gray,
                   ),
                 ),
               ),
@@ -403,7 +403,7 @@ class TnIndexSidebar extends StatelessWidget {
 
     return Container(
       width: width,
-      color: backgroundColor ?? AppColors.gray1,
+      color: backgroundColor ?? AppColors.grayLightest,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: sortedKeys.map((letter) {
@@ -421,7 +421,7 @@ class TnIndexSidebar extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.w500,
-                    color: textColor ?? AppColors.gray6,
+                    color: textColor ?? AppColors.gray,
                   ),
                 ),
               ),

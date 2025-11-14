@@ -6,8 +6,8 @@
 
 ## 🌟 项目简介 (Project Overview)
 
-朱雀UI Flutter 是一个基于腾讯TDesign Flutter组件库的现代移动应用演示项目。项目展示了如何使用Flutter构建美观、响应式的用户界面，并集成了状态管理、路由管理和屏幕适配等最佳实践。
-
+朱雀UI Flutter 是一个基于腾讯TDesign Flutter组件库的现代移动应用演示项目。项目展示了如何使用Flutter构建美观、响应式的用户界面，并集成了状态管理、路由管理和屏幕适配等最佳实践。关注关注我的微信公众号进行交流。
+![alt text](扫码_搜索联合传播样式-白色版.png)
 ZhuQue UI Flutter is a modern mobile application demo project based on Tencent TDesign Flutter component library. The project demonstrates how to build beautiful, responsive user interfaces with Flutter, integrating best practices for state management, routing, and screen adaptation.
 
 ## ✨ 特性 (Features)
@@ -104,7 +104,14 @@ lib/
 
 ## 📱 屏幕截图 (Screenshots)
 
-*即将添加应用截图...*
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
+![alt text](image-6.png)
 
 ## 🎯 功能演示 (Feature Demo)
 

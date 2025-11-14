@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zhuque_flutter_demo/core/theme/app_colors.dart';
+import 'package:zhuque_flutter_demo/core/constants/app_colors.dart';
 
 class NumberBoxDemoPage extends StatefulWidget {
   const NumberBoxDemoPage({Key? key}) : super(key: key);
@@ -62,7 +62,7 @@ class _NumberBoxDemoPageState extends State<NumberBoxDemoPage> {
             const SizedBox(height: 12),
             const Text(
               '限制在0-10之间，步长0.5',
-              style: TextStyle(color: AppColors.gray6, fontSize: 12),
+              style: TextStyle(color: AppColors.gray, fontSize: 12),
             ),
             const SizedBox(height: 24),
 
@@ -134,7 +134,7 @@ class _NumberBoxDemoPageState extends State<NumberBoxDemoPage> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     filled: true,
-                    fillColor: AppColors.gray1,
+                    fillColor: AppColors.grayLightest,
                     contentPadding: const EdgeInsets.symmetric(horizontal: 12),
                   ),
                 ),
@@ -184,7 +184,7 @@ class _NumberBoxDemoPageState extends State<NumberBoxDemoPage> {
       style: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold,
-        color: AppColors.gray8,
+        color: AppColors.grayDarker,
       ),
     );
   }
@@ -310,7 +310,7 @@ class _TnNumberBoxState extends State<TnNumberBox> {
 
   Color _getButtonColor(bool enabled) {
     if (widget.disabled || !enabled) {
-      return AppColors.gray4;
+      return AppColors.grayLightish;
     }
     return AppColors.primary;
   }
@@ -346,8 +346,8 @@ class _TnNumberBoxState extends State<TnNumberBox> {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             border: Border(
-              top: BorderSide(color: AppColors.gray4),
-              bottom: BorderSide(color: AppColors.gray4),
+              top: BorderSide(color: AppColors.grayLightish),
+              bottom: BorderSide(color: AppColors.grayLightish),
             ),
           ),
           child: TextField(

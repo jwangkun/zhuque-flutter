@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zhuque_flutter_demo/core/theme/app_colors.dart';
+import 'package:zhuque_flutter_demo/core/constants/app_colors.dart';
 
 class StickyDemoPage extends StatefulWidget {
   const StickyDemoPage({Key? key}) : super(key: key);
@@ -31,11 +31,11 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
             // 普通内容区域
             Container(
               height: 200,
-              color: AppColors.gray1,
+              color: AppColors.grayLightest,
               child: const Center(
                 child: Text(
                   '向上滚动查看吸顶效果',
-                  style: TextStyle(fontSize: 18, color: AppColors.gray6),
+                  style: TextStyle(fontSize: 18, color: AppColors.gray),
                 ),
               ),
             ),
@@ -73,7 +73,7 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
 
             // 第二个吸顶区域
             TnSticky(
-              offset: 60, // 偏移60像素
+              stickyOffset: 60, // 偏移60像素
               child: Container(
                 height: 50,
                 color: AppColors.success,
@@ -142,7 +142,7 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
                           width: 150,
                           margin: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            color: AppColors.gray2,
+                            color: AppColors.grayLighter,
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Center(
@@ -159,7 +159,7 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
             // 更多内容
             Container(
               height: 400,
-              color: AppColors.gray1,
+              color: AppColors.grayLightest,
               child: const Center(
                 child: Text('更多内容区域'),
               ),
@@ -179,7 +179,7 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: AppColors.gray4.withValues(opacity: 0.1),
+            color: AppColors.grayLightish.withValues(alpha: 0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -193,7 +193,7 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
               width: 60,
               height: 60,
               decoration: BoxDecoration(
-                color: AppColors.primary.withValues(opacity: 0.1),
+                color: AppColors.primary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(Icons.shopping_bag, color: AppColors.primary),
@@ -214,7 +214,7 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
                   const SizedBox(height: 4),
                   Text(
                     '商品描述信息',
-                    style: TextStyle(color: AppColors.gray6),
+                    style: TextStyle(color: AppColors.gray),
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -245,12 +245,12 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            AppColors.warning.withValues(opacity: 0.1),
-            AppColors.warning.withValues(opacity: 0.05),
+            AppColors.warning.withValues(alpha: 0.1),
+            AppColors.warning.withValues(alpha: 0.05),
           ],
         ),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: AppColors.warning.withValues(opacity: 0.3)),
+        border: Border.all(color: AppColors.warning.withValues(alpha: 0.3)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -290,13 +290,13 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
                   const SizedBox(height: 4),
                   Text(
                     '满${(index + 1) * 100}减${(index + 1) * 20}',
-                    style: TextStyle(color: AppColors.gray6),
+                    style: TextStyle(color: AppColors.gray),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     '有效期至：2024-12-${index + 10}',
                     style: TextStyle(
-                      color: AppColors.gray6,
+                      color: AppColors.gray,
                       fontSize: 12,
                     ),
                   ),
@@ -364,7 +364,7 @@ class TnStickyContainer extends StatelessWidget {
         boxShadow: elevation > 0
             ? [
                 BoxShadow(
-                  color: Colors.black.withValues(opacity: 0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: elevation,
                   offset: const Offset(0, 2),
                 ),

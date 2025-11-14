@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:zhuque_flutter_demo/core/theme/app_colors.dart';
+import 'package:zhuque_flutter_demo/core/constants/app_colors.dart';
 import 'package:zhuque_flutter_demo/features/index/presentation/widgets/feature_card.dart';
 
 /// 组件演示首页
@@ -109,7 +109,7 @@ class ComponentIndexPage extends StatelessWidget {
               description: '栅格系统、分割线、间距等布局相关组件',
               icon: Icons.dashboard,
               route: '/component/layout',
-              color: AppColors.gray6,
+              color: AppColors.gray,
             ),
             const SizedBox(height: 12),
 

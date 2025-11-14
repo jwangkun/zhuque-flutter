@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zhuque_flutter_demo/core/theme/app_colors.dart';
+import 'package:zhuque_flutter_demo/core/constants/app_colors.dart';
 
 class FabDemoPage extends StatefulWidget {
   const FabDemoPage({Key? key}) : super(key: key);
@@ -153,7 +153,7 @@ class _FabDemoPageState extends State<FabDemoPage> {
       style: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold,
-        color: AppColors.gray8,
+        color: AppColors.grayDarker,
       ),
     );
   }
@@ -435,9 +435,9 @@ class FeatureCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.gray1,
+        color: AppColors.grayLightest,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: AppColors.gray3),
+        border: Border.all(color: AppColors.grayLight),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -447,7 +447,7 @@ class FeatureCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
-              color: AppColors.gray8,
+              color: AppColors.grayDarker,
             ),
           ),
           const SizedBox(height: 8),
@@ -460,7 +460,7 @@ class FeatureCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     feature,
-                    style: const TextStyle(fontSize: 12, color: AppColors.gray6),
+                    style: const TextStyle(fontSize: 12, color: AppColors.gray),
                   ),
                 ),
               ],

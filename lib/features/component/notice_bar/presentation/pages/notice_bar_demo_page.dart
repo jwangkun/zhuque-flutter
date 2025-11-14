@@ -82,7 +82,7 @@ class _NoticeBarDemoPageState extends State<NoticeBarDemoPage> {
             const SizedBox(height: 12),
             TnNoticeBar(
               text: '使用自定义后缀图标的通知',
-              suffixIcon: Icon(Icons.arrow_forward_ios, size: 14, color: AppColors.gray6),
+              suffixIcon: Icon(Icons.arrow_forward_ios, size: 14, color: AppColors.gray),
             ),
             const SizedBox(height: 24),
 
@@ -103,7 +103,7 @@ class _NoticeBarDemoPageState extends State<NoticeBarDemoPage> {
       style: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold,
-        color: AppColors.gray8,
+        color: AppColors.grayDarker,
       ),
     );
   }

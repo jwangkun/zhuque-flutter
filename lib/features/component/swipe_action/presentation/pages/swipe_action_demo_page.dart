@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zhuque_flutter_demo/core/theme/app_colors.dart';
+import 'package:zhuque_flutter_demo/core/constants/app_colors.dart';
 
 class SwipeActionDemoPage extends StatefulWidget {
   const SwipeActionDemoPage({Key? key}) : super(key: key);
@@ -9,7 +9,7 @@ class SwipeActionDemoPage extends StatefulWidget {
 }
 
 class _SwipeActionDemoPageState extends State<SwipeActionDemoPage> {
-  final List<Map<String, dynamic>> _items = List.generate(10, (index) => {
+  final List<Map<String, dynamic>> _items = List.generate(10, (index) {
     return {
       'id': index,
       'title': '列表项 ${index + 1}',
@@ -19,11 +19,12 @@ class _SwipeActionDemoPageState extends State<SwipeActionDemoPage> {
   });
 
   void _handleDelete(int index) {
+    final deletedTitle = _items[index]['title'];
     setState(() {
       _items.removeAt(index);
     });
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('已删除 ${_items[index]['title']}')),
+      SnackBar(content: Text('已删除 $deletedTitle')),
     );
   }
 
@@ -53,7 +54,7 @@ class _SwipeActionDemoPageState extends State<SwipeActionDemoPage> {
         children: [
           Container(
             padding: const EdgeInsets.all(16),
-            color: AppColors.gray1,
+            color: AppColors.grayLightest,
             child: Row(
               children: [
                 Icon(Icons.info_outline, color: AppColors.primary),
@@ -61,7 +62,7 @@ class _SwipeActionDemoPageState extends State<SwipeActionDemoPage> {
                 Expanded(
                   child: Text(
                     '向左滑动列表项查看操作菜单，向右滑动可以执行其他操作',
-                    style: TextStyle(color: AppColors.gray6, fontSize: 12),
+                    style: TextStyle(color: AppColors.gray, fontSize: 12),
                   ),
                 ),
               ],
@@ -111,8 +112,8 @@ class _SwipeActionDemoPageState extends State<SwipeActionDemoPage> {
                     child: ListTile(
                       leading: CircleAvatar(
                         backgroundColor: item['isRead']
-                            ? AppColors.primary.withValues(opacity: 0.1)
-                            : AppColors.warning.withValues(opacity: 0.1),
+                            ? AppColors.primary.withValues(alpha: 0.1)
+                            : AppColors.warning.withValues(alpha: 0.1),
                         child: Icon(
                           item['isRead'] ? Icons.mail_outline : Icons.markunread,
                           color: item['isRead'] ? AppColors.primary : AppColors.warning,
@@ -125,7 +126,7 @@ class _SwipeActionDemoPageState extends State<SwipeActionDemoPage> {
                         ),
                       ),
                       subtitle: Text(item['subtitle']),
-                      trailing: const Icon(Icons.chevron_left, color: AppColors.gray4),
+                      trailing: const Icon(Icons.chevron_left, color: AppColors.grayLightish),
                     ),
                   ),
                 );
@@ -143,7 +144,7 @@ class _SwipeActionDemoPageState extends State<SwipeActionDemoPage> {
       style: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold,
-        color: AppColors.gray8,
+        color: AppColors.grayDarker,
       ),
     );
   }
@@ -481,7 +482,7 @@ class SwipeActionExamplePage extends StatelessWidget {
               child: ListTile(
                 title: Text(items[index]),
                 subtitle: Text('这是${items[index]}的描述信息'),
-                leading: Icon(Icons.item, color: AppColors.primary),
+                leading: Icon(Icons.more_vert, color: AppColors.primary),
               ),
             ),
             actions: [
