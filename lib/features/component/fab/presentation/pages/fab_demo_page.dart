@@ -95,6 +95,7 @@ class _FabDemoPageState extends State<FabDemoPage> {
               right: 16,
               bottom: 100,
               child: TnFab(
+                key: const ValueKey('fab1'),
                 onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('基础Fab被点击')),
                 ),
@@ -106,6 +107,7 @@ class _FabDemoPageState extends State<FabDemoPage> {
               right: 16,
               bottom: 170,
               child: TnFab(
+                key: const ValueKey('fab2'),
                 size: FabSize.mini,
                 onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('迷你Fab被点击')),
@@ -118,6 +120,7 @@ class _FabDemoPageState extends State<FabDemoPage> {
               right: 16,
               bottom: 240,
               child: TnFab(
+                key: const ValueKey('fab3'),
                 onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('扩展Fab被点击')),
                 ),
@@ -131,6 +134,7 @@ class _FabDemoPageState extends State<FabDemoPage> {
               right: 16,
               bottom: 320,
               child: TnFab(
+                key: const ValueKey('fab4'),
                 onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('自定义Fab被点击')),
                 ),
@@ -266,6 +270,7 @@ class _TnFabState extends State<TnFab> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final fabSize = _getFabSize();
+    final heroTag = 'fab_${widget.child.hashCode}_${DateTime.now().millisecondsSinceEpoch}';
 
     Widget fab = AnimatedBuilder(
       animation: _scaleAnimation,
@@ -284,6 +289,7 @@ class _TnFabState extends State<TnFab> with SingleTickerProviderStateMixin {
               elevation: widget.elevation,
               icon: widget.child,
               label: Text(widget.label!),
+              heroTag: heroTag,
             )
           : FloatingActionButton(
               onPressed: widget.onPressed,
@@ -292,6 +298,7 @@ class _TnFabState extends State<TnFab> with SingleTickerProviderStateMixin {
               shape: widget.shape,
               elevation: widget.elevation,
               child: widget.child,
+              heroTag: heroTag,
             ),
     );
 

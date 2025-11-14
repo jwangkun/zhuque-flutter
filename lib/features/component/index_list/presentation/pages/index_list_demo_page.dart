@@ -134,7 +134,9 @@ class _IndexListDemoPageState extends State<IndexListDemoPage> {
         title: const Text('IndexList 索引列表'),
         backgroundColor: Colors.white,
       ),
-      body: Row(
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Row(
         children: [
           // 主列表区域
           Expanded(
@@ -174,6 +176,8 @@ class _IndexListDemoPageState extends State<IndexListDemoPage> {
             ),
           ),
         ],
+      );
+        },
       ),
     );
   }

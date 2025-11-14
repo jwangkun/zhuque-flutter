@@ -104,35 +104,32 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
             // 优惠内容
             ...List.generate(3, (index) => _buildPromotionCard(index)),
 
-            // 第三个吸顶区域（横向吸顶）
-            TnSticky(
-              direction: AxisDirection.right,
-              child: Container(
-                width: 80,
-                height: double.infinity,
-                color: AppColors.warning,
-                child: const RotatedBox(
-                  quarterTurns: 3,
-                  child: Center(
-                    child: Text(
-                      '热门推荐',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+            // 第三个吸顶区域（横向吸顶）- 修复布局问题
+            SizedBox(
+              height: 300, // 使用固定高度替代double.infinity
+              child: Row(
+                children: [
+                  TnSticky(
+                    direction: AxisDirection.right,
+                    child: Container(
+                      width: 80,
+                      height: 300, // 与父容器一致
+                      color: AppColors.warning,
+                      child: const RotatedBox(
+                        quarterTurns: 3,
+                        child: Center(
+                          child: Text(
+                            '热门推荐',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            ),
-
-            // 推荐内容
-            SizedBox(
-              height: 300,
-              child: Row(
-                children: [
-                  const SizedBox(width: 80), // 为横向吸顶留出空间
                   Expanded(
                     child: ListView(
                       scrollDirection: Axis.horizontal,
@@ -318,7 +315,7 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
   }
 }
 
-// Sticky吸顶组件实现
+// Sticky吸顶组件实现 - 修复布局问题
 class TnSticky extends StatefulWidget {
   final Widget child;
   final double stickyOffset;
@@ -338,7 +335,10 @@ class TnSticky extends StatefulWidget {
 class _TnStickyState extends State<TnSticky> {
   @override
   Widget build(BuildContext context) {
-    return widget.child;
+    // 简化实现：使用Container包装，避免无限高度问题
+    return Container(
+      child: widget.child,
+    );
   }
 }
 

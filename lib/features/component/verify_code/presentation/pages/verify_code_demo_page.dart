@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:zhuque_flutter_demo/core/constants/app_colors.dart';
 
@@ -64,9 +65,11 @@ class _VerifyCodeDemoPageState extends State<VerifyCodeDemoPage> {
                 TnVerifyCodeButton(
                   onPressed: _isPhoneValid
                       ? () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('验证码已发送')),
-                          );
+                          if (mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('验证码已发送')),
+                            );
+                          }
                         }
                       : null,
                 ),
@@ -105,9 +108,11 @@ class _VerifyCodeDemoPageState extends State<VerifyCodeDemoPage> {
                 TnVerifyCodeButton(
                   onPressed: _isEmailValid
                       ? () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('验证码已发送到邮箱')),
-                          );
+                          if (mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('验证码已发送到邮箱')),
+                            );
+                          }
                         }
                       : null,
                 ),
@@ -139,9 +144,11 @@ class _VerifyCodeDemoPageState extends State<VerifyCodeDemoPage> {
                 TnVerifyCodeButton(
                   countdown: 60,
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('60秒验证码已发送')),
-                    );
+                    if (mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('60秒验证码已发送')),
+                      );
+                    }
                   },
                 ),
               ],
@@ -173,9 +180,11 @@ class _VerifyCodeDemoPageState extends State<VerifyCodeDemoPage> {
                   text: '获取验证码',
                   countingText: '重新获取',
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('验证码已发送')),
-                    );
+                    if (mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('验证码已发送')),
+                      );
+                    }
                   },
                 ),
               ],
@@ -206,9 +215,11 @@ class _VerifyCodeDemoPageState extends State<VerifyCodeDemoPage> {
                 TnVerifyCodeButton(
                   autoStart: true,
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('自动开始倒计时')),
-                    );
+                    if (mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('自动开始倒计时')),
+                      );
+                    }
                   },
                 ),
               ],
@@ -247,9 +258,11 @@ class _VerifyCodeDemoPageState extends State<VerifyCodeDemoPage> {
                     ),
                   ),
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('自定义样式验证码已发送')),
-                    );
+                    if (mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('自定义样式验证码已发送')),
+                      );
+                    }
                   },
                 ),
               ],
@@ -290,9 +303,9 @@ class _VerifyCodeDemoPageState extends State<VerifyCodeDemoPage> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.gray1,
+                color: AppColors.grayLightest,
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: AppColors.gray3),
+                border: Border.all(color: AppColors.grayLight),
               ),
               child: Column(
                 children: [
@@ -332,9 +345,11 @@ class _VerifyCodeDemoPageState extends State<VerifyCodeDemoPage> {
                       const SizedBox(width: 12),
                       TnVerifyCodeButton(
                         onPressed: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('验证码已发送，请注意查收')),
-                          );
+                          if (mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('验证码已发送，请注意查收')),
+                            );
+                          }
                         },
                       ),
                     ],
@@ -344,9 +359,11 @@ class _VerifyCodeDemoPageState extends State<VerifyCodeDemoPage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('登录成功')),
-                        );
+                        if (mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('登录成功')),
+                          );
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16),
@@ -372,7 +389,7 @@ class _VerifyCodeDemoPageState extends State<VerifyCodeDemoPage> {
       style: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold,
-        color: AppColors.gray8,
+        color: AppColors.grayDarker,
       ),
     );
   }
@@ -404,7 +421,7 @@ class TnVerifyCodeButton extends StatefulWidget {
 class _TnVerifyCodeButtonState extends State<TnVerifyCodeButton> {
   late int _countdown;
   bool _isCounting = false;
-  late Timer _timer;
+  Timer? _timer; // 改为可空类型
 
   @override
   void initState() {
@@ -418,9 +435,7 @@ class _TnVerifyCodeButtonState extends State<TnVerifyCodeButton> {
 
   @override
   void dispose() {
-    if (_isCounting) {
-      _timer.cancel();
-    }
+    _timer?.cancel(); // 使用安全调用
     super.dispose();
   }
 
@@ -441,7 +456,7 @@ class _TnVerifyCodeButtonState extends State<TnVerifyCodeButton> {
         });
 
         if (_countdown <= 0) {
-          _timer.cancel();
+          _timer?.cancel();
           setState(() {
             _isCounting = false;
             _countdown = widget.countdown;

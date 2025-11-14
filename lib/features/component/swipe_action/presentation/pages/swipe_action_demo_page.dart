@@ -264,39 +264,41 @@ class _TnSwipeActionState extends State<TnSwipeAction>
 
   @override
   Widget build(BuildContext context) {
+    final totalActionWidth = (widget.actions.length + widget.leftActions.length) * widget.actionWidth;
+
     return GestureDetector(
       onHorizontalDragStart: _handleDragStart,
       onHorizontalDragUpdate: _handleDragUpdate,
       onHorizontalDragEnd: _handleDragEnd,
       child: Stack(
         children: [
-          // 背景操作按钮
-          Positioned.fill(
+          // 背景操作按钮 - 修复布局溢出问题
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
             child: Row(
               children: [
                 // 左侧操作按钮
                 if (widget.leftActions.isNotEmpty)
-                  Expanded(
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        children: widget.leftActions.map((action) {
-                          return _buildActionButton(action, true);
-                        }).toList(),
-                      ),
+                  SizedBox(
+                    width: widget.leftActions.length * widget.actionWidth,
+                    child: Row(
+                      children: widget.leftActions.map((action) {
+                        return _buildActionButton(action, true);
+                      }).toList(),
                     ),
                   ),
                 const Spacer(),
                 // 右侧操作按钮
                 if (widget.actions.isNotEmpty)
-                  Expanded(
-                    child: Container(
-                      alignment: Alignment.centerRight,
-                      child: Row(
-                        children: widget.actions.map((action) {
-                          return _buildActionButton(action, false);
-                        }).toList(),
-                      ),
+                  SizedBox(
+                    width: widget.actions.length * widget.actionWidth,
+                    child: Row(
+                      children: widget.actions.map((action) {
+                        return _buildActionButton(action, false);
+                      }).toList(),
                     ),
                   ),
               ],

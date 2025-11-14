@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../core/constants/app_colors.dart';
 import '../../features/basic/color/presentation/pages/color_demo_page.dart';
 import '../../features/basic/icon/presentation/pages/icon_demo_page.dart';
 import '../../features/basic/button/presentation/pages/button_demo_page.dart';
@@ -464,8 +465,26 @@ class _MainScaffoldState extends State<MainScaffold> {
           return BottomNavigationBarItem(
             icon: Icon(item.icon),
             label: item.label,
+            activeIcon: Icon(
+              item.icon,
+              color: AppColors.primary,
+            ),
           );
         }).toList(),
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: AppColors.gray,
+        selectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 12,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          fontSize: 12,
+        ),
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        elevation: 8,
+        backgroundColor: Colors.white,
       ),
     );
   }

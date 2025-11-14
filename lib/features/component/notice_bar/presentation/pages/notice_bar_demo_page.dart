@@ -21,11 +21,12 @@ class _NoticeBarDemoPageState extends State<NoticeBarDemoPage> {
         title: const Text('NoticeBar 通知栏'),
         backgroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
             _buildSectionTitle('基础用法'),
             const SizedBox(height: 16),
             if (_showNotice1)
@@ -92,6 +93,7 @@ class _NoticeBarDemoPageState extends State<NoticeBarDemoPage> {
               text: '这条通知没有关闭按钮，用户无法手动关闭',
             ),
           ],
+        ),
         ),
       ),
     );
@@ -260,21 +262,25 @@ class _TnNoticeBarState extends State<TnNoticeBar>
     return LayoutBuilder(
       builder: (context, constraints) {
         _containerWidth = constraints.maxWidth;
-        return SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          controller: _scrollController,
-          child: AnimatedBuilder(
-            animation: _controller,
-            builder: (context, child) {
-              return Transform.translate(
-                offset: Offset(-_controller.value * (_textWidth + _containerWidth), 0),
-                child: child,
-              );
-            },
-            child: Text(
-              widget.text,
-              style: (widget.textStyle ?? Theme.of(context).textTheme.bodyMedium)
-                  ?.copyWith(color: _getTextColor(context)),
+        return SizedBox(
+          width: _containerWidth, // 限制宽度
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            controller: _scrollController,
+            physics: const ClampingScrollPhysics(), // 防止过度滚动
+            child: AnimatedBuilder(
+              animation: _controller,
+              builder: (context, child) {
+                return Transform.translate(
+                  offset: Offset(-_controller.value * (_textWidth + _containerWidth), 0),
+                  child: child,
+                );
+              },
+              child: Text(
+                widget.text,
+                style: (widget.textStyle ?? Theme.of(context).textTheme.bodyMedium)
+                    ?.copyWith(color: _getTextColor(context)),
+              ),
             ),
           ),
         );
