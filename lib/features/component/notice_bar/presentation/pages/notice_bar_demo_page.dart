@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tuniao/core/theme/app_colors.dart';
-import 'package:tuniao/core/widgets/feature_card.dart';
+import 'package:zhuque_flutter_demo/core/constants/app_colors.dart';
 
 class NoticeBarDemoPage extends StatefulWidget {
   const NoticeBarDemoPage({Key? key}) : super(key: key);

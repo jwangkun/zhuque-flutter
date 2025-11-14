@@ -16,6 +16,16 @@ import '../../features/component/feedback/presentation/pages/feedback_demo_page.
 import '../../features/component/loading/presentation/pages/loading_demo_page.dart';
 import '../../features/component/overlay/presentation/pages/overlay_demo_page.dart';
 import '../../features/component/layout/presentation/pages/layout_demo_page.dart';
+
+// 新增组件导入
+import '../../features/component/notice_bar/presentation/pages/notice_bar_demo_page.dart';
+import '../../features/component/number_box/presentation/pages/number_box_demo_page.dart';
+import '../../features/component/fab/presentation/pages/fab_demo_page.dart';
+import '../../features/component/verify_code/presentation/pages/verify_code_demo_page.dart';
+import '../../features/component/sticky/presentation/pages/sticky_demo_page.dart';
+import '../../features/component/swipe_action/presentation/pages/swipe_action_demo_page.dart';
+import '../../features/component/index_list/presentation/pages/index_list_demo_page.dart';
+
 import '../../features/index/presentation/pages/index_page.dart';
 import '../../features/template/presentation/pages/template_index_page.dart';
 import '../../features/about/presentation/pages/about_page.dart';
@@ -87,6 +97,29 @@ class AppRoutes {
   static const String loading = '/component/loading';
   static const String notify = '/component/notify';
   static const String overlay = '/component/overlay';
+
+  // 新增组件 - 基础组件
+  static const String numberBox = '/component/number-box';
+  static const String verifyCode = '/component/verify-code';
+  static const String fab = '/component/fab';
+  static const String swipeAction = '/component/swipe-action';
+  static const String indexList = '/component/index-list';
+  static const String segmented = '/component/segmented';
+  static const String readMore = '/component/read-more';
+  static const String timeLine = '/component/time-line';
+  static const String countDown = '/component/count-down';
+  static const String countTo = '/component/count-to';
+  static const String countScroll = '/component/count-scroll';
+  static const String scrollList = '/component/scroll-list';
+  static const String lazyLoad = '/component/lazy-load';
+  static const String loadMore = '/component/load-more';
+  static const String emptyPage = '/component/empty-page';
+  static const String productNav = '/component/product-nav';
+  static const String imageUpload = '/component/image-upload';
+  static const String signature = '/component/signature';
+  static const String verifyInput = '/component/verify-input';
+  static const String columnPicker = '/component/column-picker';
+  static const String keyboard = '/component/keyboard';
 }
 
 /// 导航项
@@ -313,6 +346,56 @@ final GoRouter router = GoRouter(
               name: 'component-title',
               builder: (BuildContext context, GoRouterState state) {
                 return const TitleDemoPage();
+              },
+            ),
+            // 新增组件 - 基础组件
+            GoRoute(
+              path: 'notice-bar',
+              name: 'notice-bar',
+              builder: (BuildContext context, GoRouterState state) {
+                return const NoticeBarDemoPage();
+              },
+            ),
+            GoRoute(
+              path: 'number-box',
+              name: 'number-box',
+              builder: (BuildContext context, GoRouterState state) {
+                return const NumberBoxDemoPage();
+              },
+            ),
+            GoRoute(
+              path: 'fab',
+              name: 'fab',
+              builder: (BuildContext context, GoRouterState state) {
+                return const FabDemoPage();
+              },
+            ),
+            GoRoute(
+              path: 'verify-code',
+              name: 'verify-code',
+              builder: (BuildContext context, GoRouterState state) {
+                return const VerifyCodeDemoPage();
+              },
+            ),
+            GoRoute(
+              path: 'sticky',
+              name: 'sticky',
+              builder: (BuildContext context, GoRouterState state) {
+                return const StickyDemoPage();
+              },
+            ),
+            GoRoute(
+              path: 'swipe-action',
+              name: 'swipe-action',
+              builder: (BuildContext context, GoRouterState state) {
+                return const SwipeActionDemoPage();
+              },
+            ),
+            GoRoute(
+              path: 'index-list',
+              name: 'index-list',
+              builder: (BuildContext context, GoRouterState state) {
+                return const IndexListDemoPage();
               },
             ),
           ],

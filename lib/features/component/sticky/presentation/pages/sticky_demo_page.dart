@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tuniao/core/theme/app_colors.dart';
+import 'package:zhuque_flutter_demo/core/theme/app_colors.dart';
 
 class StickyDemoPage extends StatefulWidget {
   const StickyDemoPage({Key? key}) : super(key: key);
@@ -179,7 +179,7 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: AppColors.gray4.withOpacity(0.1),
+            color: AppColors.gray4.withValues(opacity: 0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -193,7 +193,7 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
               width: 60,
               height: 60,
               decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(0.1),
+                color: AppColors.primary.withValues(opacity: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(Icons.shopping_bag, color: AppColors.primary),
@@ -245,12 +245,12 @@ class _StickyDemoPageState extends State<StickyDemoPage> {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            AppColors.warning.withOpacity(0.1),
-            AppColors.warning.withOpacity(0.05),
+            AppColors.warning.withValues(opacity: 0.1),
+            AppColors.warning.withValues(opacity: 0.05),
           ],
         ),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: AppColors.warning.withOpacity(0.3)),
+        border: Border.all(color: AppColors.warning.withValues(opacity: 0.3)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -364,7 +364,7 @@ class TnStickyContainer extends StatelessWidget {
         boxShadow: elevation > 0
             ? [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(opacity: 0.1),
                   blurRadius: elevation,
                   offset: const Offset(0, 2),
                 ),

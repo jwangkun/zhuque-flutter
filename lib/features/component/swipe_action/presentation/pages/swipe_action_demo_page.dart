@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tuniao/core/theme/app_colors.dart';
+import 'package:zhuque_flutter_demo/core/theme/app_colors.dart';
 
 class SwipeActionDemoPage extends StatefulWidget {
   const SwipeActionDemoPage({Key? key}) : super(key: key);
@@ -111,8 +111,8 @@ class _SwipeActionDemoPageState extends State<SwipeActionDemoPage> {
                     child: ListTile(
                       leading: CircleAvatar(
                         backgroundColor: item['isRead']
-                            ? AppColors.primary.withOpacity(0.1)
-                            : AppColors.warning.withOpacity(0.1),
+                            ? AppColors.primary.withValues(opacity: 0.1)
+                            : AppColors.warning.withValues(opacity: 0.1),
                         child: Icon(
                           item['isRead'] ? Icons.mail_outline : Icons.markunread,
                           color: item['isRead'] ? AppColors.primary : AppColors.warning,

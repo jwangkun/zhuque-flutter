@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tuniao/core/theme/app_colors.dart';
+import 'package:zhuque_flutter_demo/core/theme/app_colors.dart';
 
 class NumberBoxDemoPage extends StatefulWidget {
   const NumberBoxDemoPage({Key? key}) : super(key: key);
