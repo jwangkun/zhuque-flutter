@@ -249,7 +249,7 @@ class AboutPage extends StatelessWidget {
             _buildContactItem(
               Icons.email,
               '邮箱支持',
-              'support@zhuque-ui.com',
+              'jwangkun@gamil.com',
               '点击发送邮件',
               () => _launchEmail(),
             ),

@@ -439,8 +439,8 @@ class _MainScaffoldState extends State<MainScaffold> {
   Widget build(BuildContext context) {
     final String location = GoRouterState.of(context).uri.toString();
 
-    // 根据当前路由确定选中项
-    if (location.startsWith(AppRoutes.index)) {
+    // 根据当前路由确定选中项 - 使用精确匹配避免冲突
+    if (location == AppRoutes.index) {
       _currentIndex = 0;
     } else if (location.startsWith(AppRoutes.component)) {
       _currentIndex = 1;
@@ -463,22 +463,27 @@ class _MainScaffoldState extends State<MainScaffold> {
         },
         items: bottomNavItems.map((NavigationItem item) {
           return BottomNavigationBarItem(
-            icon: Icon(item.icon),
+            icon: Icon(
+              item.icon,
+              color: AppColors.grayDark,
+            ),
             label: item.label,
             activeIcon: Icon(
               item.icon,
               color: AppColors.primary,
+              size: 26, // 增大选中图标尺寸
             ),
           );
         }).toList(),
         selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.gray,
+        unselectedItemColor: AppColors.grayDark,
         selectedLabelStyle: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 12,
         ),
         unselectedLabelStyle: const TextStyle(
           fontSize: 12,
+          color: AppColors.grayDark,
         ),
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: true,
